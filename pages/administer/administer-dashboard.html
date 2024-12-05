@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Shadow Administer</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+<!-- ======================navigating============== -->
+<div class="container">
+  <div class="navigating">
+    <ul>
+      <li>
+        <a href="">
+          <span class="icon"><ion-icon name=""></ion-icon></span>
+          <span class="title1">GREEN SHADOW</span>
+        </a>
+      </li>
+      <li>
+        <a href="../../pages/administer/administer-dashboard.html">
+          <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+          <span class="title">Dashboard</span> <span class="title1" style="font-size:25px">AD</span>
+        </a>
+      </li>
+      <li>
+        <a href="../../pages/administer/administer-staff.html">
+          <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+          <span class="title">Staff </span>
+        </a>
+      </li>
+      <li>
+        <a href="../../pages/administer/administer-equipment.html">
+          <span class="icon"><ion-icon name="hammer-outline"></ion-icon></span>
+          <span class="title">Equipment </span>
+        </a>
+      </li>
+      <li>
+        <a href="../../pages/administer/administer-vehicle.html">
+          <span class="icon"><ion-icon name="car-outline"></ion-icon></span>
+          <span class="title">Vehicle </span>
+        </a>
+      </li>
+      <li>
+        <a href="../../pages/administer/monito-crop-table.html">
+          <span class="icon"><ion-icon name="eye-outline"></ion-icon></span>
+          <span class="title">Monitoring Details</span>
+        </a>
+      </li>
+      <li>
+        <a href="../../pages/administer/administer-field-table.html">
+          <span class="icon"><ion-icon name="map-outline"></ion-icon></span>
+          <span class="title">Field Details</span>
+        </a>
+      </li>
+      <li>
+        <a href="../../pages/administer/administer-crop-table.html">
+          <span class="icon"><ion-icon name="leaf-outline"></ion-icon></span>
+          <span class="title">Crop Details</span>
+        </a>
+      </li>
+      <li>
+        <a href="../../pages/administer/administer-staffFieldDetails.html">
+          <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+          <span class="title">Staff Field Details</span>
+        </a>
+      </li>
+      <li>
+        <a href="../../user.html">
+          <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+          <span class="title">Log Out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- =========================================main=============================================== -->
+
+<div class="main">
+  <div class="topbar">
+    <div class="toggle">
+      <ion-icon name="menu"></ion-icon>
+    </div>
+    <label for="date" id="date"></label>
+
+    <div class="search">
+      <label>
+        <input type="text" placeholder="Search here..">
+        <!--                <ion-icon name="search"></ion-icon>-->
+      </label>
+    </div>
+
+    <label for="time" id="time"></label>
+
+    <div class="user">
+      <img src="/image/alina.jpg" alt="">
+      <p style="color: black; font-size: 8px;margin-top: 10px;">User Sachi</p>
+
+    </div>
+  </div>
+  <!-- ======================Cards================================== -->
+
+  <div class="cardBox">
+    <!-- Card 1 -->
+    <div class="card">
+      <div>
+        <div class="numbers">11,504</div>
+        <div class="cardName">Daily Amount</div>
+      </div>
+      <div class="iconBx">
+        <ion-icon name="pulse"></ion-icon>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="card">
+      <div>
+        <div class="numbers">80</div>
+        <div class="cardName">Sales</div>
+      </div>
+      <div class="iconBx">
+        <ion-icon name="cart-outline"></ion-icon>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="card">
+      <div>
+        <div class="numbers">125</div>
+        <div class="cardName">Administer</div>
+      </div>
+      <div class="iconBx">
+        <ion-icon name="people"></ion-icon>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="card">
+      <div>
+        <div class="numbers">$7,842</div>
+        <div class="cardName">Earning</div>
+      </div>
+      <div class="iconBx">
+        <ion-icon name="cash-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <!--    //=====================Bar chart============//-->
+  <div class="chartRow">
+    <!-- Bar Chart Section -->
+<!--    <div class="chart-container">-->
+<!--      <canvas id="cropStorageBarChart"></canvas>-->
+<!--    </div>-->
+    <!-- Pulse Chart Section -->
+    <div class="chart-container">
+      <canvas id="cropStoragePulseChart"></canvas>
+    </div>
+    <!-- Circular Chart Section -->
+    <div class="chart-container">
+      <canvas id="cropStorageCircularChart"></canvas>
+    </div>
+  </div>
+
+  <!-- =================crop detailed table ====================-->
+  <div class="table-section">
+    <h2 class="text-center">Crop Details</h2>
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search Crop">
+      <button type="button" id="btnSearch" class="btn btn-search" onclick="searchCrop()">
+        <ion-icon name="search-outline"></ion-icon>
+      </button>
+    </div>
+    <table class="crop-table">
+      <thead>
+      <tr>
+        <th>Crop Code</th>
+        <th>Common Name</th>
+        <th>Scientific Name</th>
+        <th>Category</th>
+        <th>Season</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- Example rows -->
+      <tr>
+        <td>CRP-001</td>
+        <td>Rice</td>
+        <td>Rice v2</td>
+        <td>BG32</td>
+        <td>Summary</td>
+
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+<script>
+  // Bar Chart
+  const barChart = new Chart(document.getElementById('cropStorageBarChart'), {
+    type: 'bar',
+    data: {
+      labels: ['January', 'February', 'March', 'April'],
+      datasets: [{
+        label: 'Bar Chart Data',
+        data: [12, 19, 3, 5],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  // Pulse Chart
+  const pulseChart = new Chart(document.getElementById('cropStoragePulseChart'), {
+    type: 'line',
+    data: {
+      labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+      datasets: [{
+        label: 'Pulse Data',
+        data: [10, 20, 15, 25],
+        borderColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        tension: 0.4,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  // Circular Chart
+  // Circular Chart with Marks
+  const circularChart = new Chart(document.getElementById('cropStorageCircularChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['3 Month (75%)', '4 Month (60%)', '6 Month (80%)'],
+      datasets: [{
+        label: 'Marks Percentage',
+        data: [75, 60, 80], // Updated percentages
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)', // Light Red
+          'rgba(54, 162, 235, 0.2)', // Light Blue
+          'rgba(255, 206, 86, 0.2)'  // Light Yellow
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)', // Red Border
+          'rgba(54, 162, 235, 1)', // Blue Border
+          'rgba(255, 206, 86, 1)'  // Yellow Border
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top', // Legend at the top
+        },
+        tooltip: {
+          callbacks: {
+            label: function (tooltipItem) {
+              return `${tooltipItem.label}: ${tooltipItem.raw}%`;
+            }
+          }
+        }
+      }
+    }
+  });
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../../js/jquery-3.7.1.min.js"></script>
+<script src="../../js/controller/dashboardController.js"></script>
+<script src="../../js/main.js"></script>
+<!-- ===================ionicons=============== -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
